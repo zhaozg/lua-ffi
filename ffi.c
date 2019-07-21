@@ -10,6 +10,14 @@
 #include <math.h>
 #include <inttypes.h>
 
+
+#ifdef __GNUC__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-function"
+#pragma GCC diagnostic ignored "-Wunused-variable"
+#pragma GCC diagnostic ignored "-Wpointer-sign"
+#endif
+
 /* Set to 1 to get extra debugging on print */
 #define DEBUG_TOSTRING 0
 
@@ -3550,3 +3558,7 @@ int luaopen_ffi(lua_State* L)
     lua_setfield(L, -2, "type"); /* ffi.type */
     return 1;
 }
+
+#ifdef __GNUC__
+#pragma GCC diagnostic pop
+#endif

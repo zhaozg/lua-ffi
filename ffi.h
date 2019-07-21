@@ -7,6 +7,13 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
+#ifdef __GNUC__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-function"
+#pragma GCC diagnostic ignored "-Wunused-variable"
+#pragma GCC diagnostic ignored "-Wpointer-sign"
+#endif
+
 #pragma once
 
 #ifdef _MSC_VER
@@ -451,5 +458,6 @@ void unpack_varargs_stack_skip(lua_State* L, int first, int last, int ints_to_sk
 void unpack_varargs_float(lua_State* L, int first, int last, int max, char* to);
 void unpack_varargs_int(lua_State* L, int first, int last, int max, char* to);
 
-
-
+#ifdef __GNUC__
+#pragma GCC diagnostic pop
+#endif
